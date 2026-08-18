@@ -222,7 +222,7 @@ Danh sách đầy đủ các màn hình trong Titan OS Web v1, bao gồm specifi
 - Normal: hiển thị đầy đủ
 - Error: "Không thể lưu kế hoạch. Thử lại."
 - Success: "Kế hoạch tuần đã lưu."
-- Disabled: "Không thể tạo mission khi capacity đã đầy."
+- Warning: "Workload vượt capacity X giờ. Giảm bớt hoặc confirm override."
 
 ---
 
@@ -281,7 +281,7 @@ Danh sách đầy đủ các màn hình trong Titan OS Web v1, bao gồm specifi
 
 ### 3.5 Skills
 
-**Mục đích:** Hiển thị skill matrix 9 domain.
+**Mục đích:** Hiển thị skill matrix 9 domain với 8 Google ecosystem skills trackable.
 
 **Layout:**
 
@@ -300,6 +300,17 @@ Danh sách đầy đủ các màn hình trong Titan OS Web v1, bao gồm specifi
 │  │ - Business Strategy                                  │   │
 │  │ - Consulting                                         │   │
 │  │ - Language                                           │   │
+│  └──────────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ Google Ecosystem Skills (8 trackables)               │   │
+│  │ - Google Ads Fundamentals (Paid Media)               │   │
+│  │ - Search Campaigns (Paid Media)                      │   │
+│  │ - Performance Max PMax (Paid Media)                  │   │
+│  │ - Google Merchant Center (Paid Media)                │   │
+│  │ - Google Search Console (SEO)                        │   │
+│  │ - GA4 (Analytics & Data)                             │   │
+│  │ - Google Tag Manager (Analytics & Data)              │   │
+│  │ - Looker Studio (Analytics & Data)                   │   │
 │  └──────────────────────────────────────────────────────┘   │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │ Skill Cards Grid                                     │   │

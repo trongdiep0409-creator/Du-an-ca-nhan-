@@ -63,13 +63,38 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - AI có thể đề xuất nhưng user approve
 - Tránh quá tải hoặc lười biếng
 
+### 2.6 Capacity Rule
+
+**Quyết định:** Khi planned workload vượt capacity:
+- Hiển thị warning + số giờ vượt
+- User có thể giảm workload HOẶC confirm override
+- AI có thể đề xuất không overload nhưng không tự chặn user
+
+### 2.7 Tech Stack (LOCKED)
+
+**Quyết định:** Stack cố định:
+- Framework: Next.js 15
+- Language: TypeScript strict
+- Styling: Tailwind CSS + shadcn/ui
+- ORM: Prisma
+- Database: Supabase PostgreSQL
+- State: Zustand
+- Validation: Zod
+- Charts: Recharts
+- Deployment: Vercel
+
+**Lý do:**
+- Đảm bảo maintainability
+- Supabase project đã tồn tại
+- Không dùng SQLite làm database chính
+
 ---
 
 ## 3. UX Decisions
 
 ### 3.1 Sidebar Navigation
 
-**Quyết định:** Sidebar với 6 nhóm: Today, Growth, Work, Intelligence, System.
+**Quyết định:** Sidebar với 5 nhóm: Today, Growth, Work, Intelligence, System.
 
 **Lý do:**
 - Phân nhóm theo mục đích sử dụng
@@ -141,14 +166,31 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - Configurable sau này
 - Phản ánh tình trạng thực tế
 
-### 4.3 Roadmap Fixed
+### 4.3 Roadmap Locked vs Adaptive
 
-**Quyết định:** Roadmap 30 tháng là cố định trừ khi user approve.
+**Quyết định:** Roadmap phân biệt LOCKED và ADAPTIVE items.
+
+**LOCKED:**
+- Career target
+- 30-month horizon
+- 5 macro stages
+- Competency requirements
+- Major career milestones
+
+**ADAPTIVE (cần user approval):**
+- Monthly sequencing
+- Weekly plans
+- Missions
+- Practice volume
+- Workload
+- Supporting skills
+- Project sequencing
 
 **Lý do:**
 - Đảm bảo định hướng dài hạn
-- Tránh thay đổi tùy tiện
+- Linh hoạt theo tình trạng thực tế
 - AI chỉ đề xuất, không tự thực hiện
+- Mọi thay đổi phải được log
 
 ### 4.4 Evidence Verified Không Downgrade
 
@@ -161,9 +203,49 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 
 ---
 
-## 5. Technical Decisions
+## 5. Google Ecosystem Skills
 
-### 5.1 Web-First
+**Quyết định:** Explicit 8 trackable skills:
+
+| # | Skill | Domain |
+|---|-------|--------|
+| 1 | Google Ads Fundamentals | Paid Media |
+| 2 | Search Campaigns | Paid Media |
+| 3 | Performance Max (PMax) | Paid Media |
+| 4 | Google Merchant Center | Paid Media |
+| 5 | Google Search Console | SEO |
+| 6 | GA4 | Analytics & Data |
+| 7 | Google Tag Manager | Analytics & Data |
+| 8 | Looker Studio | Analytics & Data |
+
+**Mapping Flow:**
+```
+Domain → Skill → Mission → Practice → Project → Evidence → Review → Skill Progress
+```
+
+**Lý do:**
+- Google là nền tảng chính cho Digital Solutions Consultant
+- Các skills này cần theo dõi riêng
+- Đảm bảo evidence cho từng skill cụ thể
+
+---
+
+## 6. Language Roadmap Corrections
+
+### 6.1 English
+- **Tháng 1–6:** Ưu tiên, target TOEIC 650
+- **Tháng 7–12:** Maintenance + Professional English
+- **Tháng 13–30:** Professional/Business English + Real work usage
+
+### 6.2 Chinese
+- **Tháng 7–12:** Ưu tiên, target HSK4 cuối tháng 12
+- **Tháng 13–30:** Maintenance + Business Chinese + Real work usage
+
+---
+
+## 7. Technical Decisions
+
+### 7.1 Web-First
 
 **Quyết định:** Web-first, responsive desktop + mobile.
 
@@ -172,7 +254,7 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - Dễ bảo trì
 - Dùng được trên mọi thiết bị
 
-### 5.2 Local-First
+### 7.2 Local-First
 
 **Quyết định:** Dữ liệu ưu tiên lưu local.
 
@@ -181,7 +263,7 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - Dữ liệu cá nhân an toàn
 - Offline-friendly
 
-### 5.3 TypeScript Strict
+### 7.3 TypeScript Strict
 
 **Quyết định:** TypeScript strict mode bắt buộc.
 
@@ -190,7 +272,7 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - Giảm bug
 - Maintainable
 
-### 5.4 No Backend in Phase 1
+### 7.4 No Backend in Phase 1
 
 **Quyết định:** Không build database production, AI API, authentication, backend feature trong Phase 1.
 
@@ -201,9 +283,9 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 
 ---
 
-## 6. Scope Decisions
+## 8. Scope Decisions
 
-### 6.1 In Scope
+### 8.1 In Scope
 
 - Product + UX + UI Architecture
 - Information Architecture
@@ -214,9 +296,10 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - AI Mentor UX
 - 30-Month Roadmap
 - Language Track
+- Google Ecosystem Skills mapping
 - Phase 1 Decisions
 
-### 6.2 Out of Scope
+### 8.2 Out of Scope
 
 - ❌ Database production
 - ❌ AI API
@@ -231,7 +314,35 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 
 ---
 
-## 7. Terminology
+## 9. Visual Evidence Status
+
+### 9.1 PENDING — Figma/Web Visual Frames
+
+**Trạng thái: PENDING — chưa tồn tại visual evidence thực tế.**
+
+Required minimum frames trước khi Phase 1 final PASS:
+
+**Desktop:**
+- Design System
+- Dashboard
+- Roadmap
+- Today
+- Week Plan
+- Mission Detail
+- Skills
+- Analytics
+- AI Mentor
+
+**Mobile:**
+- Today
+- Mission Detail
+- AI Mentor
+
+> Figma không thể được tạo bởi agent. Đây là requirement PENDING — cần user hoặc designer tạo visual frames.
+
+---
+
+## 10. Terminology
 
 | Thuật ngữ | Định nghĩa |
 |-----------|------------|
@@ -249,10 +360,12 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 | Recommendation | Đề xuất AI |
 | Approval | Phê duyệt user |
 | Roadmap Revision | Thay đổi roadmap |
+| LOCKED | Cố định, không thay đổi |
+| ADAPTIVE | Có thể thay đổi với user approval |
 
 ---
 
-## 8. Definition of Done — Phase 1
+## 11. Definition of Done — Phase 1 (sau corrections)
 
 Phase 1 PASS khi:
 
@@ -262,8 +375,8 @@ Phase 1 PASS khi:
 - [x] Design system specification đầy đủ
 - [x] Responsive strategy đầy đủ
 - [x] AI Mentor UX đầy đủ
-- [x] 30-month roadmap được mô hình hóa
-- [x] English + Chinese track được đưa vào
+- [x] 30-month roadmap được mô hình hóa (LOCKED + ADAPTIVE)
+- [x] English + Chinese track được đưa vào (HSK4 cuối tháng 12)
 - [x] 17.5h weekly capacity được đưa vào
 - [x] Adaptive AI flow có human approval
 - [x] Edge states được định nghĩa
@@ -271,4 +384,10 @@ Phase 1 PASS khi:
 - [x] AGENTS.md đúng rules
 - [x] Không chứa code/prototype cũ
 - [x] Không có secret
+- [x] Tech stack LOCKED: Next.js 15, TypeScript, Tailwind, shadcn/ui, Prisma, Supabase, Zustand, Zod, Recharts, Vercel
+- [x] Không dùng SQLite làm database chính
+- [x] Google Ecosystem Skills (8 trackables) được mô hình hóa
+- [x] Capacity rule: warning + override, AI không tự chặn
+- [x] Navigation: 5 groups (not 6)
 - [x] Tất cả tài liệu thống nhất thuật ngữ
+- [ ] Visual evidence (Figma/Web) — **PENDING**

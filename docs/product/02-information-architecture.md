@@ -2,7 +2,7 @@
 
 ## 1. Navigation Structure
 
-Sidebar chính với 6 nhóm chức năng:
+Sidebar chính với 5 nhóm chức năng:
 
 ```
 ┌─────────────────────────────────────────────┐

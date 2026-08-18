@@ -11,7 +11,7 @@ Language là một domain thực sự trong Titan OS, không phải phụ trợ.
 ### 2.1 Mục tiêu
 
 - **Target ban đầu:** TOEIC 650
-- **Thời gian ưu tiên:** 6 tháng đầu (FOUNDATION)
+- **Thời gian ưu tiên:** Tháng 1–6 (FOUNDATION)
 - **Sau đó:** Maintenance + Professional usage
 
 ### 2.2 Kỹ năng
@@ -32,7 +32,8 @@ Language là một domain thực sự trong Titan OS, không phải phụ trợ.
 | 1–2 | Vocabulary + Grammar cơ bản | Nền tảng |
 | 3–4 | Listening + Reading | TOEIC 500 |
 | 5–6 | TOEIC practice + Professional English | TOEIC 650 |
-| 7–30 | Maintenance + Professional usage | Duy trì |
+| 7–12 | Maintenance + Professional English | Duy trì TOEIC 650 |
+| 13–30 | Professional/Business English + Real work usage | Professional usage |
 
 ### 2.4 Evidence
 
@@ -41,6 +42,7 @@ Language là một domain thực sự trong Titan OS, không phải phụ trợ.
 - Vocabulary lists
 - Reading comprehension notes
 - Professional English samples
+- Business English usage samples
 
 ---
 
@@ -48,9 +50,9 @@ Language là một domain thực sự trong Titan OS, không phải phụ trợ.
 
 ### 3.1 Mục tiêu
 
-- **Target:** HSK4
-- **Thời gian ưu tiên:** Từ tháng 7 (BUILD)
-- **Sau đó:** Maintenance + Business Chinese
+- **Target:** HSK4 (đạt cuối tháng 12)
+- **Thời gian ưu tiên:** Tháng 7–12 (BUILD)
+- **Sau đó:** Maintenance + Business Chinese + Real work usage
 
 ### 3.2 Kỹ năng
 
@@ -72,13 +74,14 @@ Language là một domain thực sự trong Titan OS, không phải phụ trợ.
 | Tháng | Trọng tâm | Target |
 |-------|-----------|--------|
 | 7–8 | Pinyin + Pronunciation + Vocabulary cơ bản | HSK1 |
-| 9–10 | Vocabulary + Grammar | HSK2 |
-| 11–12 | Listening + Reading | HSK2–3 |
-| 13–15 | Vocabulary + Grammar nâng cao | HSK3 |
-| 16–18 | Listening + Reading + Speaking | HSK3–4 |
-| 19–21 | Vocabulary + Grammar HSK4 | HSK4 |
-| 22–24 | Listening + Reading + Writing | HSK4 |
-| 25–30 | Business Chinese + Maintenance | HSK4 + Business |
+| 9–10 | Vocabulary + Grammar + Listening + Reading | HSK2 |
+| 11 | Vocabulary + Grammar nâng cao + Listening + Reading | HSK3 |
+| 12 | Vocabulary + Grammar HSK4 + Listening + Reading | **HSK4** |
+| 13–18 | HSK4 maintenance + Business Chinese cơ bản | HSK4 + Business |
+| 19–24 | Business Chinese + Reading + Speaking | HSK4 + Business |
+| 25–30 | Business Chinese + Real work usage + Maintenance | Professional usage |
+
+> **Lưu ý (LOCKED):** HSK4 phải đạt cuối tháng 12. Các milestone chi tiết trong tháng là ADAPTIVE.
 
 ### 3.4 Evidence
 
@@ -130,17 +133,19 @@ Mỗi language session gồm:
 | Listening Hours | Giờ nghe |
 | Reading Hours | Giờ đọc |
 | Practice Tests | Số đề đã luyện |
+| Professional Usage | Mức độ dùng trong công việc |
 
 ### 5.2 Chinese Progress
 
 | Metric | Mô tả |
 |--------|-------|
 | HSK Level | Cấp độ HSK hiện tại |
-| Target Level | Mục tiêu (HSK4) |
+| Target Level | Mục tiêu (HSK4 cuối tháng 12) |
 | Vocabulary Count | Số từ vựng đã học |
 | Listening Hours | Giờ nghe |
 | Speaking Hours | Giờ nói |
 | Writing Samples | Số bài viết |
+| Business Usage | Mức độ dùng trong công việc |
 
 ---
 
@@ -148,11 +153,11 @@ Mỗi language session gồm:
 
 Language sessions phải được đưa vào Weekly Plan:
 
-- **FOUNDATION (1–6):** English ưu tiên, 3–4 sessions/tuần
-- **BUILD (7–12):** Chinese bắt đầu, English maintenance, 2–3 sessions/tuần
-- **GROWTH (13–18):** Chinese ưu tiên, English professional, 2–3 sessions/tuần
-- **INTEGRATION (19–24):** Chinese HSK4, English professional, 2 sessions/tuần
-- **CONSULTANT (25–30):** Business Chinese, English professional, 1–2 sessions/tuần
+- **FOUNDATION (1–6):** English ưu tiên, 3–4 sessions/tuần, target TOEIC 650
+- **BUILD (7–12):** Chinese ưu tiên, target HSK4, English maintenance, 2–3 sessions/tuần
+- **GROWTH (13–18):** Chinese HSK4 + Business, English professional, 2–3 sessions/tuần
+- **INTEGRATION (19–24):** Chinese Business, English professional, 2 sessions/tuần
+- **CONSULTANT (25–30):** Business Chinese, English professional, 1–2 sessions/tuần + Real work usage
 
 ---
 
@@ -165,3 +170,4 @@ Analytics phải hiển thị:
 - Language consistency
 - Language evidence count
 - Language skill levels
+- Professional/Business usage level

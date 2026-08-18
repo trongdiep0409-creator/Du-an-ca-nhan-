@@ -106,9 +106,26 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 - Normal: hiển thị đầy đủ
 - Error: "Không thể lưu kế hoạch. Thử lại."
 - Success: "Kế hoạch tuần đã lưu."
-- Disabled: "Không thể tạo mission khi capacity đã đầy."
+- Warning: "Workload vượt capacity X giờ. Giảm bớt hoặc confirm override."
 
-### 3.2 Weekly Review
+### 3.2 Capacity Override Flow
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  WORKLOAD VƯỢT CAPACITY                                 │
+├─────────────────────────────────────────────────────────┤
+│  1. User tạo mission vượt capacity                       │
+│  2. UI hiển thị warning                                  │
+│  3. UI hiển thị số giờ vượt capacity                     │
+│  4. AI đề xuất không overload (không bắt buộc)           │
+│  5. User lựa chọn:                                       │
+│     - Giảm workload (bớt mission)                       │
+│     - HOẶC Confirm override (giữ nguyên)                 │
+│  6. AI không được tự chặn user                           │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 3.3 Weekly Review
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -180,7 +197,33 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 6. Skill Progression Flow
+## 6. Google Skills Flow
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  GOOGLE SKILLS FLOW                                     │
+├─────────────────────────────────────────────────────────┤
+│  1. Chọn Google skill từ 8 skills trackables            │
+│     - Google Ads Fundamentals (Paid Media)              │
+│     - Search Campaigns (Paid Media)                     │
+│     - Performance Max PMax (Paid Media)                 │
+│     - Google Merchant Center (Paid Media)               │
+│     - Google Search Console (SEO)                       │
+│     - GA4 (Analytics & Data)                            │
+│     - Google Tag Manager (Analytics & Data)             │
+│     - Looker Studio (Analytics & Data)                  │
+│  2. Domain → Skill → Mission                            │
+│  3. Thực hiện Practice                                  │
+│  4. Liên kết với Project nếu có                         │
+│  5. Tạo Evidence (Campaign, Dashboard, Audit, Report)   │
+│  6. Review evidence                                     │
+│  7. Cập nhật Skill Progress                             │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 7. Skill Progression Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -201,7 +244,7 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 7. AI Adaptive Flow
+## 8. AI Adaptive Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -221,23 +264,23 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 │  3. AI recommend: đề xuất                               │
 │     - Điều chỉnh workload                               │
 │     - Điều chỉnh focus                                  │
-│     - Điều chỉnh roadmap                                │
+│     - Điều chỉnh roadmap (ADAPTIVE items only)          │
 │  4. User review: xem xét                                │
 │  5. User approve/reject                                 │
-│  6. Nếu approve: áp dụng thay đổi                       │
+│  6. Nếu approve: áp dụng thay đổi + log revision        │
 │  7. Nếu reject: giữ nguyên, ghi lý do                   │
 └─────────────────────────────────────────────────────────┘
 ```
 
 **Bắt buộc:**
-- AI không được tự thay đổi roadmap
-- AI không được tự thay đổi workload
-- AI không được tự thay đổi focus
+- AI không được tự thay đổi LOCKED roadmap items
+- AI chỉ được đề xuất thay đổi ADAPTIVE items
 - Mọi thay đổi phải có user approval
+- Mọi thay đổi roadmap phải được log
 
 ---
 
-## 8. Project Flow
+## 9. Project Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -260,7 +303,7 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 9. Learning Flow
+## 10. Learning Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -286,7 +329,7 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 10. Knowledge Flow
+## 11. Knowledge Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -305,7 +348,7 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 11. Language Flow
+## 12. Language Flow
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -324,39 +367,40 @@ Core user flow mô tả hành trình chính của người dùng trong Titan OS,
 
 ---
 
-## 12. Edge Cases
+## 13. Edge Cases
 
-### 12.1 Mission Blocked
+### 13.1 Mission Blocked
 - User ghi blocker reason
 - Mission chuyển sang Blocked
 - AI phân tích blocker pattern
 - AI đề xuất giải pháp
 - User approve → Unblocked
 
-### 12.2 Mission Rework
+### 13.2 Mission Rework
 - Review = Rework
 - Mission quay lại In Progress
 - User thực hiện lại
 - Submit lại → Review lại
 
-### 12.3 Capacity Overload
+### 13.3 Capacity Overload
 - User tạo mission vượt capacity
-- UI hiển thị warning
-- User phải xác nhận hoặc giảm bớt
+- UI hiển thị warning + số giờ vượt capacity
+- User có thể giảm workload HOẶC confirm override
+- AI có thể đề xuất không overload nhưng không tự chặn user
 
-### 12.4 Missing Prerequisite
+### 13.4 Missing Prerequisite
 - Mission yêu cầu skill chưa đạt
 - UI hiển thị warning
 - AI đề xuất học prerequisite trước
 
-### 12.5 Evidence Rejected
+### 13.5 Evidence Rejected
 - Evidence bị reject
 - User phải tạo evidence mới
 - Mission không thể Completed
 
 ---
 
-## 13. UX State Coverage
+## 14. UX State Coverage
 
 Mỗi screen quan trọng phải hỗ trợ đầy đủ:
 
@@ -368,4 +412,5 @@ Mỗi screen quan trọng phải hỗ trợ đầy đủ:
 | **Error** | Lỗi xảy ra | "Không thể tải dữ liệu" |
 | **Success** | Thao tác thành công | "Đã lưu thành công" |
 | **Blocked** | Bị chặn | "Mission bị blocked" |
-| **Disabled** | Không khả dụng | "Capacity đã đầy" |
+| **Disabled** | Không khả dụng | "Không thể lưu" |
+| **Warning** | Cảnh báo vượt capacity | "Workload vượt capacity X giờ" |

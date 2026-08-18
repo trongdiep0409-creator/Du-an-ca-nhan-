@@ -21,7 +21,7 @@ Trở thành **Digital Solutions Consultant** thông qua 5 macro stage:
 | Stage | Thời gian | Trọng tâm |
 |-------|-----------|-----------|
 | FOUNDATION | Tháng 1–6 | Web, Infrastructure, UI/UX fundamentals, English |
-| BUILD | Tháng 7–12 | UX, SEO, CRO, Tracking, Chinese |
+| BUILD | Tháng 7–12 | UX, SEO, CRO, Tracking, Chinese (HSK4) |
 | GROWTH | Tháng 13–18 | Google Ads, GA4, GTM, Data, Funnel |
 | INTEGRATION | Tháng 19–24 | Automation, AI, Digital systems, Business |
 | CONSULTANT | Tháng 25–30 | Business analysis, Audit, Strategy, Consulting |
@@ -48,7 +48,7 @@ Phase 1 thiết kế đầy đủ nền móng Product + UX + UI Architecture tr�
 
 | Trạng thái | Chi tiết |
 |------------|----------|
-| Phase 1: Product & UX Foundation | ✅ Hoàn thành |
+| Phase 1: Product & UX Foundation | ⏳ Đang triển khai (cần visual evidence) |
 | Phase 2: Implementation | ⏳ Chưa bắt đầu |
 | Database production | ❌ Chưa xây dựng |
 | AI API | ❌ Chưa xây dựng |
@@ -58,13 +58,16 @@ Phase 1 thiết kế đầy đủ nền móng Product + UX + UI Architecture tr�
 
 > Stack dưới đây là định hướng cho Phase 2, chưa triển khai trong Phase 1.
 
-- **Frontend**: React + TypeScript (strict mode)
-- **Styling**: Design tokens + CSS Modules / Tailwind
-- **State**: Local-first, có thể dùng Zustand/TanStack Query
-- **Backend**: Minimal, chỉ khi cần sync
-- **Database**: SQLite (local-first) hoặc tương đương
-- **AI**: API integration (observe → analyze → recommend)
-- **Deployment**: Web-first, responsive desktop + mobile
+- **Framework**: Next.js 15
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **ORM**: Prisma
+- **Database**: Supabase PostgreSQL
+- **State**: Zustand
+- **Validation**: Zod
+- **Charts**: Recharts
+- **Deployment**: Vercel
+- **Web-first**: Responsive desktop + mobile
 
 ## Documentation
 

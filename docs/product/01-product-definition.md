@@ -83,68 +83,160 @@ Không được bỏ bất kỳ mắt xích chính nào khỏi IA.
 
 ---
 
-## 6. Core Concepts
+## 6. Tech Stack (LOCKED)
 
-### 6.1 Mission
+| Layer | Công nghệ |
+|-------|-----------|
+| Framework | Next.js 15 |
+| Language | TypeScript strict mode |
+| Styling | Tailwind CSS + shadcn/ui |
+| ORM | Prisma |
+| Database | Supabase PostgreSQL |
+| State | Zustand |
+| Validation | Zod |
+| Charts | Recharts |
+| Deployment | Vercel |
+
+**Rules:**
+- Không sử dụng SQLite làm database chính
+- Supabase project đã tồn tại, không đưa secrets vào repository
+- Không đưa Supabase credentials vào repository
+
+---
+
+## 7. Core Concepts
+
+### 7.1 Mission
 
 - Đơn vị nhỏ của công việc
 - Có type, objective, expected output, acceptance criteria
 - Status: Planned → In Progress → Submitted → Passed/Rework/Blocked → Completed
 - **Completed** chỉ khi: output + evidence + acceptance criteria + review = Passed
 
-### 6.2 Evidence
+### 7.2 Evidence
 - Bằng chứng cụ thể về năng lực
 - Types: Live Website, GitHub, Screenshot, Figma, Audit, Report, Dashboard, Campaign, Tracking Setup, Automation, Case Study, Document, Certificate, Other
 - Status: Recorded → Reviewed → Verified
+- Verified không được tự động downgrade
 
-### 6.3 Skill
+### 7.3 Skill
 - Kỹ năng trong 9 domain
 - Progression dựa trên evidence, không dựa trên giờ học
 - Cấp độ: Current Level, Target Level, Evidence Strength
 
-### 6.4 Project
+### 7.4 Project
 - Tập hợp các mission liên quan đến một vấn đề thực tế
 - Tạo ra deliverables + evidence + case study
 
-### 6.5 Weekly Plan
+### 7.5 Weekly Plan
 - Kế hoạch hàng tuần
 - Capacity: Recovery 8–10h, Busy 12–14h, Normal 17.5h, Sprint 20–22h
+- Khi workload vượt capacity: hiển thị warning, hiển thị số giờ vượt, user có thể giảm workload hoặc confirm override
+- AI có thể đề xuất không overload, nhưng không tự chặn user
 
-### 6.6 AI Mentor
+### 7.6 AI Mentor
 - 5 chế độ: Daily Coach, Weekly Reviewer, Skill Gap Analyst, Roadmap Advisor, Project Reviewer
 - Đề xuất dựa trên dữ liệu, không dựa trên cảm tính
 
 ---
 
-## 7. Business Rules
+## 8. Skill Matrix — 9 Domains
 
-### 7.1 Mission Completion
+### 8.1 Domain Skills
+
+| Domain | Skills |
+|--------|--------|
+| **Web & Infrastructure** | HTML, CSS, JavaScript, React, VPS, DNS, Deployment |
+| **UI/UX & CRO** | Design Fundamentals, Figma, User Research, Wireframe, Prototype, CRO, A/B Testing |
+| **SEO** | On-page SEO, Technical SEO, Keyword Research, **Google Search Console** |
+| **Paid Media** | **Google Ads Fundamentals**, **Search Campaigns**, **Performance Max (PMax)**, **Google Merchant Center** |
+| **Analytics & Data** | **GA4**, **Google Tag Manager**, **Looker Studio**, Data Analysis, Reporting |
+| **Automation & AI** | Workflow Automation, API Integration, AI Tools, AI Workflow |
+| **Business Strategy** | Business Process, Digital Strategy, Business Analysis |
+| **Consulting** | Requirement Analysis, Solution Design, Audit, Strategy, Client Communication |
+| **Language** | English (TOEIC), Chinese (HSK) |
+
+### 8.2 Google Ecosystem Skills (8 trackables)
+
+| # | Skill | Domain |
+|---|-------|--------|
+| 1 | Google Ads Fundamentals | Paid Media |
+| 2 | Search Campaigns | Paid Media |
+| 3 | Performance Max (PMax) | Paid Media |
+| 4 | Google Merchant Center | Paid Media |
+| 5 | Google Search Console | SEO |
+| 6 | GA4 | Analytics & Data |
+| 7 | Google Tag Manager | Analytics & Data |
+| 8 | Looker Studio | Analytics & Data |
+
+### 8.3 Skill Progression Map
+
+```
+Domain
+→ Skill
+→ Mission
+→ Practice
+→ Project
+→ Evidence
+→ Review
+→ Skill Progress
+```
+
+---
+
+## 9. Business Rules
+
+### 9.1 Mission Completion
 Mission **Completed** chỉ khi:
 1. Output tồn tại
 2. Evidence tồn tại
 3. Acceptance criteria đạt
 4. Review = Passed
 
-### 7.2 Skill Progression
+### 9.2 Skill Progression
 - Skill level **không được** tăng chỉ dựa trên số giờ học
 - Skill progression **phải** dựa trên evidence
 
-### 7.3 Adaptive State
+### 9.3 Adaptive State
 - AI adaptive state (AHEAD / ON TRACK / AT RISK / BLOCKED) chỉ là **đề xuất**
 - Mọi thay đổi workload, roadmap, hoặc focus **phải** có user approval
 
-### 7.4 Roadmap
-- Roadmap 30 tháng là **cố định** trừ khi user approve
-- AI có thể đề xuất thay đổi, không được tự thực hiện
+### 9.4 Roadmap Locked vs Adaptive
 
-### 7.5 Evidence Verification
+**LOCKED (cố định):**
+- Career target (Digital Solutions Consultant)
+- 30-month horizon
+- 5 macro stages
+- Competency requirements
+- Major career milestones
+
+**ADAPTIVE (có thể thay đổi với user approval):**
+- Monthly sequencing
+- Weekly plans
+- Missions
+- Practice volume
+- Workload
+- Supporting skills
+- Project sequencing
+
+AI có thể đề xuất thay đổi, không được tự thực hiện. Mọi thay đổi phải được log.
+
+### 9.5 Capacity Rule
+- Khi planned workload vượt capacity:
+  - Hiển thị warning
+  - Hiển thị số giờ vượt capacity
+  - User có thể giảm workload HOẶC confirm override
+- AI có thể đề xuất chống overload
+- AI không được tự chặn user
+
+### 9.6 Evidence Verification
 - Evidence `Verified` không được tự động downgrade
 
 ---
 
-## 8. Scope Boundaries
+## 10. Scope Boundaries
 
-### 8.1 In Scope (Phase 1)
+### 10.1 In Scope (Phase 1)
 - Product + UX + UI Architecture
 - Information Architecture
 - Core User Flow
@@ -155,8 +247,9 @@ Mission **Completed** chỉ khi:
 - 30-Month Roadmap
 - Language Track
 - Phase 1 Decisions
+- Google Ecosystem Skills mapping
 
-### 8.2 Out of Scope (Phase 1)
+### 10.2 Out of Scope (Phase 1)
 - ❌ Database production
 - ❌ AI API
 - ❌ Authentication
@@ -170,7 +263,7 @@ Mission **Completed** chỉ khi:
 
 ---
 
-## 9. Success Metrics
+## 11. Success Metrics
 
 | Metric | Description |
 |--------|-------------|
@@ -182,10 +275,11 @@ Mission **Completed** chỉ khi:
 | Capacity utilization | % capacity tuần được sử dụng |
 | Project progress | Tiến độ các project |
 | Language progress | Tiến độ TOEIC / HSK |
+| Google skills coverage | Số Google skills đạt evidence |
 
 ---
 
-## 10. Non-Goals
+## 12. Non-Goals
 
 - Không tạo mạng xã hội
 - Không tạo công cụ quản lý team

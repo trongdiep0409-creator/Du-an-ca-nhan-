@@ -27,12 +27,14 @@ Tài liệu này quy định cách AI coder phải làm việc trên repository 
 - Không được tạo mock data, fake status, hoặc giả lập trạng thái hoàn thành
 - Không được tự động đánh dấu mission/skill/project là hoàn thành
 - Mọi trạng thái phải phản ánh dữ liệu thực tế
+- Visual evidence (Figma, mockup) chỉ được đánh dấu hoàn thành khi tồn tại thực tế
 
 ### 1.4 Không thay roadmap goal tự động
 
-- Roadmap 30 tháng là cố định trừ khi user approve thay đổi
-- AI chỉ được đề xuất thay đổi roadmap, không được tự thực hiện
-- Roadmap revision phải có user approval
+- Roadmap 30 tháng là cố định với **LOCKED** items (career target, 30-month horizon, 5 macro stages, competency requirements, major milestones)
+- **ADAPTIVE** items (monthly sequencing, weekly plans, missions, practice volume, workload, supporting skills, project sequencing) có thể thay đổi nhưng phải có user approval
+- AI chỉ được đề xuất thay đổi, không được tự thực hiện
+- Roadmap revision phải có user approval và được log
 
 ### 1.5 User approval bắt buộc với adaptive roadmap
 
@@ -44,32 +46,48 @@ Tài liệu này quy định cách AI coder phải làm việc trên repository 
 
 ## 2. Quy định code
 
-### 2.1 TypeScript strict
+### 2.1 Tech Stack (LOCKED)
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript strict mode
+- **Styling**: Tailwind CSS + shadcn/ui
+- **ORM**: Prisma
+- **Database**: Supabase PostgreSQL
+- **State**: Zustand
+- **Validation**: Zod
+- **Charts**: Recharts
+- **Deployment**: Vercel
+
+Không sử dụng SQLite làm database chính.
+Supabase project đã tồn tại. Không đưa secrets vào repository.
+
+### 2.2 TypeScript strict
 
 - Bật `strict: true` trong `tsconfig.json`
 - Không dùng `any` trừ trường hợp bất khả kháng và phải có comment giải thích
 - Không tắt strict mode
 
-### 2.2 Validation bắt buộc
+### 2.3 Validation bắt buộc
 
-- Mọi input từ user phải được validate
+- Mọi input từ user phải được validate bằng Zod
 - Mọi dữ liệu từ API phải được validate
 - Không tin tưởng dữ liệu đầu vào
 
-### 2.3 Code maintainable
+### 2.4 Code maintainable
 
 - Tuân theo design system trong `docs/product/05-design-system.md`
-- Component phải tái sử dụng được
+- Component phải tái sử dụng được (shadcn/ui)
 - Không copy-paste code
 - Comment giải thích "tại sao", không giải thích "cái gì"
 
-### 2.4 Không commit secret
+### 2.5 Không commit secret
 
 - Không commit API key, token, password, hoặc bất kỳ secret nào
 - Sử dụng environment variables
 - Kiểm tra `.gitignore` trước khi commit
+- Không đưa Supabase credentials vào repository
 
-### 2.5 Không tự thêm scope ngoài roadmap
+### 2.6 Không tự thêm scope ngoài roadmap
 
 - Chỉ implement những gì trong roadmap và tài liệu product
 - Không tự ý thêm feature, screen, hoặc chức năng mới
@@ -85,18 +103,20 @@ Tài liệu này quy định cách AI coder phải làm việc trên repository 
 2. Xác định screen/feature đang implement thuộc phần nào của IA
 3. Kiểm tra design system tokens
 4. Kiểm tra responsive strategy
+5. Kiểm tra tech stack bắt buộc
 
 ### 3.2 Trong khi code
 
 1. Tuân theo core user flow trong `docs/product/03-core-user-flow.md`
 2. Xử lý đầy đủ UX states: Loading, Empty, Normal, Error, Success, Blocked, Disabled
 3. Tuân theo AI adaptive flow: AI recommend → user approve
-4. Không bỏ qua edge cases
+4. Tuân theo capacity rule: warning khi vượt capacity, user có thể confirm override
+5. Không bỏ qua edge cases
 
 ### 3.3 Sau khi code
 
 1. Kiểm tra TypeScript strict pass
-2. Kiểm tra validation hoạt động
+2. Kiểm tra validation hoạt động (Zod)
 3. Kiểm tra responsive trên các breakpoint
 4. Kiểm tra không có secret trong code
 5. Kiểm tra không có scope creep
@@ -108,13 +128,15 @@ Tài liệu này quy định cách AI coder phải làm việc trên repository 
 - ❌ Copy code/prototype Titan OS cũ
 - ❌ Fake completion
 - ❌ Tự thay đổi business rule
-- ❌ Tự thay đổi roadmap
+- ❌ Tự thay đổi LOCKED roadmap items
 - ❌ Thêm scope ngoài roadmap
 - ❌ Commit secret
 - ❌ Tắt TypeScript strict
 - ❌ Bỏ qua validation
 - ❌ Thêm multi-user, billing, SaaS features
 - ❌ Xây dựng database production, AI API, authentication, backend feature trong Phase 1
+- ❌ Sử dụng SQLite làm database chính
+- ❌ Đánh dấu visual evidence hoàn thành nếu không tồn tại thực tế
 
 ---
 
@@ -131,3 +153,4 @@ Một task chỉ được coi là hoàn thành khi:
 - [ ] Tuân theo design system
 - [ ] Tuân theo business rules
 - [ ] Không fake completion
+- [ ] Visual evidence tồn tại thực tế trước khi đánh dấu hoàn thành
