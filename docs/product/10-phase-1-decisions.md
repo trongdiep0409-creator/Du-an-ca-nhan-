@@ -70,7 +70,22 @@ Tài liệu này ghi lại các quyết định quan trọng trong Phase 1, đ�
 - User có thể giảm workload HOẶC confirm override
 - AI có thể đề xuất không overload nhưng không tự chặn user
 
-### 2.7 Tech Stack (LOCKED)
+### 2.7 UI Language (LOCKED)
+
+**Quyết định:** Titan OS Web v1 default UI language là **Vietnamese**.
+
+**Rules:**
+- Tất cả menus, buttons, labels, forms, system messages, empty states, errors, reviews, analytics descriptions, và AI Mentor responses phải là Vietnamese mặc định
+- Technical/product names có thể giữ nguyên tiếng Anh: Google Ads, PMax, Merchant Center, Search Console, GA4, GTM, Looker Studio, DNS, VPS, API
+- Không được build English-first UI
+- English/i18n chỉ là future scope
+
+**Lý do:**
+- User là người Việt
+- Sản phẩm phục vụ một người dùng Việt
+- Technical names giữ tiếng Anh vì là thuật ngữ chuyên ngành
+
+### 2.8 Tech Stack (LOCKED)
 
 **Quyết định:** Stack cố định:
 - Framework: Next.js 15

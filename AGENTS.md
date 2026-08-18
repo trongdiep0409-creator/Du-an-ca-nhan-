@@ -46,6 +46,14 @@ Tài liệu này quy định cách AI coder phải làm việc trên repository 
 
 ## 2. Quy định code
 
+### 2.0 UI Language (LOCKED)
+
+- Titan OS Web v1 default UI language là **Vietnamese**
+- Tất cả menus, buttons, labels, forms, system messages, empty states, errors, reviews, analytics descriptions, và AI Mentor responses **phải** là Vietnamese mặc định
+- Technical/product names có thể giữ nguyên tiếng Anh: Google Ads, PMax, Merchant Center, Search Console, GA4, GTM, Looker Studio, DNS, VPS, API
+- **Không được** build English-first UI
+- English/i18n chỉ là future scope, không phải Phase 1
+
 ### 2.1 Tech Stack (LOCKED)
 
 - **Framework**: Next.js 15
