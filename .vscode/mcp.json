@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "type": "prompt",
+      "command": "list_resources",
+      "args": []
+    }
+  ],
+  "servers": {
+    "supabase": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@supabase/mcp-server-supabase", "--project-ref", ""],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": ""
+      }
+    }
+  }
+}

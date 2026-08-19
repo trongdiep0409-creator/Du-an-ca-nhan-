@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "system": false,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": ["src/app/globals.css"],
+    "baseColor": "slate",
+    "fontFamily": {
+      "sans": ["Inter", "system-ui", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    }
+  },
+  "aliases": {
+    "components": "@/components",
+    "lib": "@/lib",
+    "hooks": "@/hooks",
+    "ui": "@/components/ui",
+    "store": "@/store",
+    "types": "@/types"
+  }
+}

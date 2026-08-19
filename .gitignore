@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+
+# Build outputs
+.next
+.out
+build
+dist
+
+# Environment variables / secrets — NEVER commit
+.env
+.env.local
+.env*.local
+.env*.development
+.env*.production
+
+# Prisma
+prisma/*.sqlite
+prisma/migrations/
+!prisma/schema.prisma
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/mcp.json
+.idea/
+
+# Temp
+tmp
+*.tmp
