@@ -7,6 +7,9 @@ node_modules
 build
 dist
 
+# Generated type info
+tsconfig.tsbuildinfo
+
 # Environment variables / secrets — NEVER commit
 .env
 .env.local
@@ -16,8 +19,7 @@ dist
 
 # Prisma
 prisma/*.sqlite
-prisma/migrations/
-!prisma/schema.prisma
+prisma/regenerate
 
 # Logs
 *.log

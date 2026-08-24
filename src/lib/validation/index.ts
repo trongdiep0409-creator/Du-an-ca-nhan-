@@ -1,4 +1,6 @@
-export * from "./mission";
-export * from "./skill";
-export * from "./evidence";
-export * from "./project";
+/// Validation index.
+///
+/// Phase 2: only env validation is exposed.
+/// Business validation schemas (mission, skill, evidence, project)
+/// belong to Phase 3+ and have been removed.
+export * from "./env";

@@ -1,68 +1,19 @@
+/// Titan OS Web v1 — shared type definitions (Phase 2 foundation).
+///
+/// Business-domain interfaces (Mission, Skill, Project, Evidence, Review,
+/// User) have been removed — they belong to Phase 3+ after the product
+/// design review.  This file retains only UI/UX-related types needed for
+/// the Phase 2 foundation shell.
+
 /**
- * Các type chung dùng trong ứng dụng.
- * Phase 2 — Technical Foundation chỉ định nghĩa interface cơ bản.
- * Dữ liệu thực sẽ được fetch từ Supabase + Prisma khi có backend.
+ * Adaptive state reported by AI analysis.
+ * This is a UI-level concept, NOT a persisted business rule.
+ * Actual values will be driven by real data in Phase 3+.
  */
-
-export interface User {
-  id: string;
-  email: string;
-  name: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Mission {
-  id: string;
-  title: string;
-  description: string | null;
-  status: string;
-  priority: string;
-  dueDate: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Skill {
-  id: string;
-  name: string;
-  category: string;
-  level: string;
-  targetLevel: string;
-  timeSpentMinutes?: number;
-}
-
-export interface Project {
-  id: string;
-  title: string;
-  description: string | null;
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Evidence {
-  id: string;
-  type: string;
-  title: string;
-  description: string | null;
-  url: string | null;
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Review {
-  id: string;
-  evidenceId: string;
-  status: string;
-  comment: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
+export type AdaptiveState = "AHEAD" | "ON_TRACK" | "AT_RISK" | "BLOCKED";
 
 export interface AdaptiveInfo {
-  state: "AHEAD" | "ON_TRACK" | "AT_RISK" | "BLOCKED";
+  state: AdaptiveState;
   reason: string;
   recommendation: string;
 }

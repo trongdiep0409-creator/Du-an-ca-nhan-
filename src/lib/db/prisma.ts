@@ -1,3 +1,13 @@
+/// Server-only Prisma client singleton.
+///
+/// Phase 2 foundation: this module must NEVER be imported from client
+/// components.  It deliberately does NOT return `(null as unknown as
+/// PrismaClient)` — mis-configuration fails clearly instead of pretending
+/// a client exists.
+///
+/// Usage:
+///   import { getPrisma } from "@/lib/db/prisma";
+///   const prisma = getPrisma();   // throws if DATABASE_URL is missing
 import { PrismaClient } from "@prisma/client";
 
 declare global {
@@ -5,14 +15,28 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-// Singleton pattern để tránh tạo nhiều PrismaClient instances trong dev
-export const prisma =
-  global.prisma ||
-  (process.env.DATABASE_URL
-    ? new PrismaClient()
-    : // Khi chưa có DATABASE_URL, trả về null để dev và phát triển môi trường local không lỗi
-      (null as unknown as PrismaClient));
+/**
+ * Lazily create / reuse a PrismaClient instance.
+ *
+ * @throws Error("DATABASE_URL is not configured …") when DATABASE_URL
+ *   is not set — failing honestly rather than silently returning null.
+ */
+export function getPrisma(): PrismaClient {
+  if (!process.env.DATABASE_URL) {
+    throw new Error(
+      "DATABASE_URL chưa được cấu hình. Vui lòng thiết lập biến môi trường DATABASE_URL trước khi sử dụng Prisma."
+    );
+  }
 
-if (process.env.NODE_ENV === "development" && global.prisma === undefined && process.env.DATABASE_URL) {
-  global.prisma = prisma;
+  if (process.env.NODE_ENV === "development" && global.prisma) {
+    return global.prisma;
+  }
+
+  const client = new PrismaClient();
+
+  if (process.env.NODE_ENV === "development") {
+    global.prisma = client;
+  }
+
+  return client;
 }
